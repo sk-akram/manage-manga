@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    tools:context=".HomeActivity">
+
+    <!-- toolbar.xml -->
+    <!-- res/layout/toolbar.xml -->
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_red"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <LinearLayout
+            android:id="@+id/toolbarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+
+                android:src="@drawable/ic_search"
+                android:contentDescription="search" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manga"
+                android:fontFamily="@font/lobster_regular"
+                android:textSize="30sp"
+                android:textColor="@color/white" />
+
+            <EditText
+                style="@style/SearchBarStyle"
+                android:id="@+id/searchBar"
+                android:background="@drawable/search_box"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:hint="Search"
+                android:cursorVisible="true"
+                android:padding="8dp"
+
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:visibility="gone" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+
+            <ImageButton
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                android:src="@drawable/ic_add"
+                android:contentDescription="add" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/convertProgress"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/pleaseWaitTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Please wait..."
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="0dp"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:paddingBottom="2dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_bar_custom"
+            android:background="@android:color/transparent" />
+        <TextView
+            android:id="@+id/progressTextView"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:visibility="gone"
+             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutLinear"
+        android:layout_below="@+id/convertProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <GridView
+            android:id="@+id/imageGridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:verticalSpacing="16dp"
+            android:horizontalSpacing="16dp"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
